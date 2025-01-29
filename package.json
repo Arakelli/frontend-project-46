@@ -22,5 +22,8 @@
   "homepage": "https://github.com/Arakelli/frontend-project-46#readme",
   "dependencies": {
     "commander": "^13.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
