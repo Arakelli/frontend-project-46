@@ -6,9 +6,3 @@ publish:
 
 make lint:
 	npx eslint
-
-gendiff -h:
-	node bin/gendiff.js -h
-
-gendiff -V:
-	node bin/gendiff.js -V
