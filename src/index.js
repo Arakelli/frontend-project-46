@@ -1,5 +1,6 @@
-import path from 'path';
 import fs from 'fs';
+import path from 'path';
+import process from 'process';
 import compareData from './compareData.js';
 
 const getFullPath = (filepath) => path.resolve(process.cwd(), filepath);
