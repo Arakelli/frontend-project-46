@@ -1,4 +1,3 @@
-// import fs from 'fs';
 import path from 'path';
 import { dirname } from 'path';
 import genDiff from "../src/index.js";
@@ -10,7 +9,6 @@ const __dirname = dirname(__filename);
 
 
 const getFullPath = (filepath) => path.join(__dirname, '..', '__fixtures__', filepath);
-// const readFile = (filename) => fs.readFileSync(getFullPath(filename), 'utf-8');
 
 test('gendiff', () => {
     expect(genDiff(
