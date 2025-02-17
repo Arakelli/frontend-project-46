@@ -10,4 +10,4 @@ export default (data, format) => {
     }
 
     throw Error('Unknow format');
-}
+};
