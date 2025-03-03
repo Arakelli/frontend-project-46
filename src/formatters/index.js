@@ -1,7 +1,7 @@
 import stylish from "./stylish.js";
 
-const formatter = {
-    stylish
+const formatter = (tree) => {
+    return stylish(tree)
 };
 
-export default (format = 'stylish') => formatter[format];
+export default formatter;
