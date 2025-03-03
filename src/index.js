@@ -3,6 +3,7 @@ import path from 'path';
 import process from 'process';
 import parser from './parser.js';
 import compareData from './compareData.js';
+import getFormatter from './formatters/index.js';
 
 const getFullPath = (filepath) => path.resolve(process.cwd(), filepath);
 
@@ -18,7 +19,9 @@ const genDiff = (filepath1, filepath2) => {
     const parserData1 = parser(dataFile1, formatFile1);
     const parserData2 = parser(dataFile2, formatFile2);
 
-    return compareData(parserData1, parserData2);
+
+    const buildTree = compareData(parserData1, parserData2);
+    return `${getFormatter(buildTree)}`;
 }
 
 export default genDiff;
