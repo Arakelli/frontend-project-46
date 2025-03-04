@@ -20,7 +20,6 @@ const genDiff = (filepath1, filepath2) => {
     const parserData2 = parser(dataFile2, formatFile2);
 
     const buildTree = compareData(parserData1, parserData2);
-    console.log(buildTree)
 
     return `${getFormatter(buildTree)}`;
 }
