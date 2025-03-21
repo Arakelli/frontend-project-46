@@ -16,7 +16,42 @@ make install
 
 ### Примеры использования 
 #### Сравнение плоских файлов JSON
+Пример ввода команды:
+```
+gendiff __fixtures__/file1.json __fixtures__/file2.json
+```
+
 [![asciicast](https://asciinema.org/a/YB0pUGAhECURqERWaxabKa3Jy.svg)](https://asciinema.org/a/YB0pUGAhECURqERWaxabKa3Jy)
 
 #### Сравнение плоских файлов YAML
+Пример ввода команды:
+```
+gendiff __fixtures__/file1.yaml __fixtures__/file2.yaml
+```
+
 [![asciicast](https://asciinema.org/a/noexknMCTx2xregVVkUhksQ8y.svg)](https://asciinema.org/a/noexknMCTx2xregVVkUhksQ8y)
+
+#### Рекурсивное сравнение в формате stylish
+Пример ввода команды:
+```
+gendiff __fixtures__/file1.json __fixtures__/file2.json
+```
+
+[![asciicast](https://asciinema.org/a/Y4t4LsamzxfLwLLXULTF0ymjt.svg)](https://asciinema.org/a/Y4t4LsamzxfLwLLXULTF0ymjt)
+
+#### Вывод в плоском формате
+Пример ввода команды:
+```
+gendiff --format plain __fixtures__/file1.json __fixtures__/file2.json
+```
+
+[![asciicast](https://asciinema.org/a/gCmatx2RleRsg8XVTSdKCCdpz.svg)](https://asciinema.org/a/gCmatx2RleRsg8XVTSdKCCdpz)
+
+#### Вывод в формате JSON
+Пример ввода команды:
+Пример ввода команды:
+```
+gendiff --format json __fixtures__/file1.json __fixtures__/file2.json
+```
+
+[![asciicast](https://asciinema.org/a/5mmHvJmiGjn0NDYs9AHnewJhQ.svg)](https://asciinema.org/a/5mmHvJmiGjn0NDYs9AHnewJhQ)
