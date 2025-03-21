@@ -1,23 +1,35 @@
 import _ from 'lodash';
 
 const compareData = (obj1, obj2) => {
-    const keys = _.sortBy(_.union(_.keys(obj1), _.keys(obj2)));
-
-    return keys.map((key) => {
-        if (!Object.hasOwn(obj1, key)) {
-            return { key, type: 'added', value: obj2[key] };
-        }
-        if (!Object.hasOwn(obj2, key)) {
-            return { key, type: 'removed', value: obj1[key] };
-        }
-        if (_.isObject(obj1[key]) && _.isObject(obj2[key])) {
-            return { key, type: 'nested', children: compareData(obj1[key], obj2[key]) };
-        }
-        if (!_.isEqual(obj1[key], obj2[key])) {
-            return { key, type: 'changed', oldValue: obj1[key], newValue: obj2[key] };
-        }
-        return { key, type: 'unchanged', value: obj1[key] };
-    })
-}
+    const sortedUniqueKeys = _.sortBy(_.union(Object.keys(obj1), Object.keys(obj2)));
+    const resultObj = sortedUniqueKeys.map((key) => {
+      const value1 = obj1[key];
+      const value2 = obj2[key];
+  
+      if (!_.has(obj1, key)) {
+        return { key, value: value2, type: 'added' };
+      }
+  
+      if (!_.has(obj2, key)) {
+        return { key, value: value1, type: 'deleted' };
+      }
+  
+      if (value1 === value2) {
+        return { key, value: value1, type: 'unchanged' };
+      }
+  
+      if (_.isPlainObject(value1) && _.isPlainObject(value2)) {
+        return { key, children: compareData(value1, value2), type: 'hasChild' };
+      }
+      return {
+        key,
+        oldValue: value1,
+        newValue: value2,
+        value: value2,
+        type: 'changed',
+      };
+    });
+    return resultObj;
+  };
 
 export default compareData;
