@@ -9,7 +9,7 @@ const getFullPath = (filepath) => path.resolve(process.cwd(), filepath);
 
 const getData = (filepath) => fs.readFileSync(getFullPath(filepath), 'utf-8');
 
-const genDiff = (filepath1, filepath2) => {
+const genDiff = (filepath1, filepath2, format = 'stylish') => {
     const dataFile1 = getData(filepath1);
     const dataFile2 = getData(filepath2);
 
@@ -21,7 +21,7 @@ const genDiff = (filepath1, filepath2) => {
 
     const buildTree = compareData(parserData1, parserData2);
 
-    return `${getFormatter(buildTree)}`;
+    return `${getFormatter(buildTree, format)}`;
 }
 
 export default genDiff;
