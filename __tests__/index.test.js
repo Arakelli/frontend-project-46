@@ -15,12 +15,28 @@ test('gendiff-json', () => {
     expect(genDiff(
       getFixturePath('file1.json'),
       getFixturePath('file2.json')
-    )).toEqual(readFile('result.txt').trim());
+    )).toEqual(readFile('result-stylish.txt').trim());
 });
 
 test('gendiff-yaml', () => {
   expect(genDiff(
     getFixturePath('file1.yaml'),
     getFixturePath('file2.yaml')
-  )).toEqual(readFile('result.txt').trim());
+  )).toEqual(readFile('result-stylish.txt').trim());
+});
+
+test('gendiff-json-plain_formant', () => {
+  expect(genDiff(
+    getFixturePath('file1.json'),
+    getFixturePath('file2.json'),
+    'plain'
+  )).toEqual(readFile('result-plain.txt').trim());
+});
+
+test('gendiff-json-json_formant', () => {
+  expect(genDiff(
+    getFixturePath('file1.json'),
+    getFixturePath('file2.json'),
+    'json'
+  )).toEqual(readFile('result-json.txt').trim());
 });
