@@ -28,7 +28,7 @@ test('gendiff-json-plain_formant', () => {
   expect(genDiff(
     getFixturePath('file1.json'),
     getFixturePath('file2.json'),
-    'plain'
+    'plain',
   )).toEqual(readFile('result-plain.txt').trim());
 });
 
