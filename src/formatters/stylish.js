@@ -16,8 +16,6 @@ const stringify = (data, depth) => {
 };
 
 const stylish = (data) => {
-  const replacer = '    ';
-
   const iter = (obj, depth) => {
     const currentReplacer = replacer.repeat(depth);
     const result = obj.flatMap((node) => {
